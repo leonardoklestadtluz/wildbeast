@@ -1,0 +1,336 @@
+/* RESET */
+body,
+p,
+h1,
+ul,
+li,
+blockquote {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Vollkorn", Georgia, serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+}
+
+/* GRID GERAL */
+.estrutura {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) 3fr 18.75rem;
+  grid-template-areas:
+    "header header header"
+    "sidenav content anuncios"
+    "footer footer footer";
+}
+
+/* HEADER */
+.header {
+  grid-area: header;
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+  padding: 1.875rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.logo {
+  max-width: 12.5rem;
+}
+
+.header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header nav a {
+  display: block;
+  padding: 0.625rem;
+  color: #fff;
+  font-size: 1.125rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+  transition: 0.8s;
+}
+header nav a:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+header li + li {
+  margin-left: 1rem;
+}
+
+/* SIDENAV - MENU LATERAL */
+.sidenav {
+  grid-area: sidenav;
+  background: #fafbfc;
+  padding: 1.875rem;
+}
+
+.sidenav li a {
+  display: block;
+  min-width: 3.75rem;
+  max-width: 6.25rem;
+  margin: 0 auto 1.875rem auto;
+
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+  transition: 0.7s ease-in-out;
+}
+
+.sidenav li a:hover {
+  background: #b07dfb;
+}
+
+/* CONTENT */
+.content {
+  grid-area: content;
+  max-width: 56.25rem;
+  margin: 0 auto;
+  padding: 1.875rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.875rem;
+}
+
+.col-wide {
+  grid-column: 1 / -1;
+}
+
+.imagem-1 {
+  grid-row: span 2;
+  align-self: end;
+}
+
+.imagem-2 {
+  align-self: end;
+}
+
+/* ESTILOS CONTENT */
+p {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  letter-spacing: -0.005rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.informacoes p + p {
+  margin-top: 1.875rem;
+}
+
+/* TÍTULO */
+.titulo {
+  color: #b07dfb;
+}
+
+.titulo h1 {
+  font-size: 3.75rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+span {
+  font-size: 1.175rem;
+  font-style: italic;
+}
+
+/* CARACTERÍSTICAS */
+.caracteristicas {
+  display: flex;
+  align-items: flex-start;
+}
+
+.caracteristicas > div {
+  width: 5rem;
+  text-align: center;
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+  border-radius: 7px;
+  box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+  position: relative;
+}
+
+.caracteristicas > div:first-child {
+  margin-right: 3.75rem;
+}
+
+.caracteristicas span {
+  display: block;
+  color: #b07dfb;
+}
+
+.numero {
+  font-size: 3rem;
+  line-height: 1;
+  margin: 0.625rem auto;
+}
+
+.rotulo {
+  background: #fff;
+  border-radius: 0 0 5px 5px;
+  padding: 5px 0;
+  position: relative;
+  top: 2px;
+}
+
+.destaque {
+  font-size: 0.875rem;
+  color: #b07dfb;
+  max-width: 16rem;
+}
+
+.citacao,
+.atributos {
+  align-self: start;
+  padding: 1.875rem;
+  border-radius: 7px;
+  box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+}
+
+.citacao p {
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  color: #fff;
+  max-width: 31.25rem;
+  margin: 0 auto;
+}
+
+.atributos li {
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.125rem;
+  padding: 0.9375rem;
+}
+
+.atributos li + li {
+  border-top: 2px solid #b07dfb;
+}
+
+/* ANUNCIOS */
+.anuncios {
+  grid-area: anuncios;
+  background: #fafbfc;
+  display: grid;
+  align-content: start;
+  padding: 1.875rem;
+  gap: 1.875rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+/* FOOTER */
+.footer {
+  grid-area: footer;
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+  padding: 1.875rem;
+}
+
+.footer p {
+  color: #fff;
+  text-align: center;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1200px) {
+  .estrutura {
+    grid-template-areas:
+      "header header header"
+      "sidenav content content"
+      "sidenav anuncios anuncios"
+      "footer footer footer";
+  }
+}
+
+/* ANIMAÇAO DA SETA */
+@keyframes seta {
+  from {
+    right: 30px;
+  }
+
+  to {
+    right: 20px;
+  }
+}
+
+/* HEADER E MENU LATERAL */
+@media (max-width: 760px) {
+  .estrutura {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header"
+      "sidenav"
+      "content"
+      "anuncios"
+      "footer";
+  }
+
+  .header {
+    grid-template-columns: auto;
+  }
+
+  .logo {
+    margin-bottom: 1.25rem;
+  }
+
+  .header nav a {
+    font-size: 1rem;
+  }
+
+  .header li + li {
+    margin-left: 0.625rem;
+  }
+
+  .sidenav {
+    position: relative;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .sidenav::after {
+    content: "→";
+    position: absolute;
+    top: 5px;
+    right: 1.875rem;
+    color: rgba(0, 0, 0, 0.3);
+    animation: seta 0.5s ease-in 0s infinite alternate;
+  }
+
+  .sidenav ul {
+    display: flex;
+  }
+
+  .sidenav ul li {
+    flex: 1 0 3.75rem;
+  }
+
+  .sidenav {
+    padding: 0 1.875rem;
+  }
+
+  .sidenav li a {
+    margin: 1.875rem 1.875rem 1.875rem 0;
+  }
+}
+
+/* CONTENT */
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: auto;
+  }
+}
